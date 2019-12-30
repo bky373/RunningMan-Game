@@ -1,4 +1,10 @@
 package com.example.runningman_game;
 
-public class RunningBoyView {
+import android.graphics.Bitmap;
+import android.view.View;
+
+public class RunningBoyView extends View {
+
+    Bitmap backGround;
+    Bitmap mountain;
 }
