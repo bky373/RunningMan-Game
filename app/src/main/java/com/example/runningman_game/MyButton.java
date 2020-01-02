@@ -31,6 +31,7 @@ public class MyButton {
         this.y = y;
     }
     // TODO 오늘 하지 못한 공부... 아프긴 했지만 조금은 할 수 있었다. 미루지 말기를..
+    // TODO 오늘 하지 못한 공부... 아프긴 했지만 조금은 할 수 있었다. 미루지 말기를..
     public void action(float x, float y, int id, boolean isDown) {
 
         if (isDown && rect.contains(x, y)) {
