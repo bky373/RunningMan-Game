@@ -2,17 +2,20 @@ package com.example.runningman_game;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 
 public class RunningBoyView extends View {
 
     Bitmap backGround;
     Bitmap mountain;
 
-    static Context sContext;
+    static Context context;
     private MyThread mMyThread;
     static int Width, Height;
     Bitmap ball;
@@ -70,14 +73,24 @@ public class RunningBoyView extends View {
 
     public RunningBoyView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.sContext= context;
+        this.context = context;
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        Display
+        Display display = ((WindowManager) this.context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+
+        Point p11 = new Point();
+
+        display.getSize(p11);
+        Height = p11.y;
+        Width = p11.x;
+        gameTime = Width;
+        scoreBasic = Width / 14; // 점수 나오는 시간 조정
+
+        Bitmap imgLeft = BitmapFactory.decodeResource(getResources(), R.drawable.btnleft);
     }
 
 
