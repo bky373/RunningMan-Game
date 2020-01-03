@@ -53,7 +53,7 @@ public class RunningBoyView extends View {
     int gameTime;
 
     // 0이면 게임 시작 화면, 1이면 게임 시작 전 화면, 2이면 게임 결과 화면
-    int whichScreen =1;
+    int whichScreen = 1;
     int basicUnit;
     int basicUnit2; // 기기 세로 크기 Height을 기준으로 단위 크기 만들기
 
@@ -91,8 +91,59 @@ public class RunningBoyView extends View {
         scoreBasic = Width / 14; // 점수 나오는 시간 조정
 
         Bitmap imgLeft = BitmapFactory.decodeResource(getResources(), R.drawable.btnleft);
+        imgLeft = Bitmap.createScaledBitmap(imgLeft, Width / 11, Width / 11, true);
+
+        Bitmap imgRight = BitmapFactory.decodeResource(getResources(), R.drawable.ball);
+
+        // 공
+        ball = BitmapFactory.decodeResource(getResources(), R.drawable.ball);
+        ball = Bitmap.createScaledBitmap(ball, Width / 9, Width / 9, true);
+
+        bWidth = ball.getWidth() / 2;
+        bHeight = bWidth;
+        ball_x = 100;
+        ball_y = -200;
+
+        // 배경 - 버스
+        schoolBus = BitmapFactory.decodeResource(getResources(), R.drawable.minibus);
+        schoolBus = Bitmap.createScaledBitmap(schoolBus, Width / 4, Width / 9, true);
+        schoolBus_x = Width * 2 / 3;
+        schoolBus_y = Height / 2;
+
+        // 배경 그림
+        backGround = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+        backGround = Bitmap.createScaledBitmap(schoolBus, Width / 4, Width / 9, true);
+
+        // 화면 배치 등에 사용된 버튼 크기의 기본값 설정
+        basicUnit = imgLeft.getWidth();
+        basicUnit2 = Height / 10;
+        btnLeft = new MyButton(imgLeft, 0, Height - basicUnt - basicUnit / 2);
+        btnRight = new MyButton(imgRight, Width - btnLeft.w, Height - basicUnit - basicUnit / 2);
+
+        // 게임 중 나가기 버튼
+        exit = BitmapFactory.decodeResource(context.getResources(), R.drawable.exit);
+        exit_x = Width * 3 / 5;
+        exit_y = basicUnit / 4;
+        exit_width = exit.getWidth();
+        exit_height = exit.getHeight();
+
+        help = BitmapFactory.decodeResource(context.getResources(), R.drawable.help);
+        help = Bitmap.createScaledBitmap(help, Width / 9, Width / 9, true);
+        help_x = Width - help.getWidth() - basicUnit / 6;
+        help_y = basicUnit / 4 + help.getWidth() + basicUnit / 8;
+
+        button_width = help.getHeight();
+
+        btnStart = BitmapFactory.decodeResource(context.getResources(), R.drawable.btnstart);
+        btnStart = Bitmap.createScaledBitmap(btnStart, Width / 4, Width / 13, true);
+        btnStart_width = btnStart.getWidth();
+        btnStart_height = btnStart.getHeight();
+
+        btnStart_x = Width / 2 - btnStart_width / 2;
+        btnStart_y = Height * 3 / 4;
+
+        mountain = BitmapFactory.decodeResource(context.getResources(), R.drawable.mountain);
+        mountain = Bitmap.createScaledBitmap(mountain, Width, Height / 2, true);
+        
     }
-
-
-
 }
