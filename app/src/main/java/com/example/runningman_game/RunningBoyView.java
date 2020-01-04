@@ -144,6 +144,7 @@ public class RunningBoyView extends View {
 
         mountain = BitmapFactory.decodeResource(context.getResources(), R.drawable.mountain);
         mountain = Bitmap.createScaledBitmap(mountain, Width, Height / 2, true);
-        
+
+        //TODO 일요일 저녁 힘들지만 해보자..ㅠㅠ!
     }
 }
