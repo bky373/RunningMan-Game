@@ -3,6 +3,7 @@ package com.example.runningman_game;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.util.AttributeSet;
@@ -16,7 +17,7 @@ public class RunningBoyView extends View {
     Bitmap mountain;
 
     static Context context;
-    private MyThread mMyThread;
+    private MyThread mThread;
     static int Width, Height;
     Bitmap ball;
     int ball_x, ball_y;
@@ -145,6 +146,31 @@ public class RunningBoyView extends View {
         mountain = BitmapFactory.decodeResource(context.getResources(), R.drawable.mountain);
         mountain = Bitmap.createScaledBitmap(mountain, Width, Height / 2, true);
 
-        //TODO 일요일 저녁 힘들지만 해보자..ㅠㅠ!
+        timeImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.timeimage);
+        timeImage = Bitmap.createScaledBitmap(timeImage, Width / 7, basicUnit / 2, true);
+        timeImage_w = timeImage.getWidth();
+
+        sRunningBoy = new RunningBoy(context, Height);
+
+        if (mThread == null) {
+            mThread = new MyThread();
+            mThread.start();
+        }
+
+        p1 = new Paint();
+        p1.setColor(Color.WHITE);
+
+        paintRed.setColor(Color.RED);
+        paintRed.setTextSize(30);
+
+        pAlpha = new Paint();
+        pAlpha.setAlpha(85);
     }
+
+    void moveBall() {
+
+        ball_y += Height / 70;
+        if(ball_y>Height + 100) makeBall();
+    }
+    
 }
