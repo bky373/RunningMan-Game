@@ -172,5 +172,5 @@ public class RunningBoyView extends View {
         ball_y += Height / 70;
         if(ball_y>Height + 100) makeBall();
     }
-    
+    //TODO 학원일이 쉽지 않다..
 }
